@@ -1,0 +1,8 @@
+@use "../../shared/sass/colors" as *;
+@use "../../shared/sass/variables" as *;
+
+.mainWrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+}

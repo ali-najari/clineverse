@@ -1,0 +1,107 @@
+@use "../../sass/colors" as *;
+@use "../../sass/variables" as *;
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  min-width: 140px;
+  font-family: inherit;
+
+  &.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+}
+
+.trigger {
+  display: flex;
+  align-items: stretch;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid $border-color;
+  background: $input-bg;
+}
+
+.triggerText {
+  flex: 1;
+  text-align: right;
+  padding: 10px 14px;
+  font-size: 14px;
+  font-weight: 500;
+  color: $text-primary;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.toggleBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 12px;
+  border: none;
+  cursor: pointer;
+  background: $secondary-light;
+  transition: background 150ms ease;
+
+  &:hover {
+    background: $secondary-hover;
+  }
+}
+
+.toggleBtnOpen {
+  background: $secondary-hover;
+}
+
+.icon {
+  color: $gray-800;
+  transition: transform 150ms ease;
+
+  .toggleBtnOpen & {
+    transform: rotate(180deg);
+  }
+}
+
+.menu {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-top: 6px;
+  padding: 4px 0;
+  list-style: none;
+  border-radius: 8px;
+  overflow: hidden;
+  z-index: 20;
+  background: $gray-700;
+  border: 1px solid $border-color;
+  box-shadow: $dp4;
+}
+
+.option {
+  width: 100%;
+  text-align: right;
+  padding: 8px 14px;
+  font-size: 14px;
+  font-weight: 500;
+  color: $text-secondary;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition:
+    background 150ms ease,
+    color 150ms ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.04);
+  }
+}
+
+.optionActive {
+  color: $secondary-light;
+  font-weight: 600;
+  background: rgba(125, 92, 255, 0.12);
+
+  &:hover {
+    background: rgba(125, 92, 255, 0.16);
+  }
+}

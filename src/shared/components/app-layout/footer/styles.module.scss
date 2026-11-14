@@ -1,0 +1,25 @@
+@use "../../../sass/colors" as *;
+@use "../../../sass/variables" as *;
+
+.footer {
+  width: 100%;
+  margin-top: auto;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid $border-color;
+  color: $gray-400;
+  font-size: .9rem;
+}
+
+@media (max-width: $mobile) {
+
+  .footer {
+    height: auto;
+    gap: .5rem;
+    padding: 1rem 0;
+    flex-direction: column;
+  }
+
+}

@@ -1,0 +1,126 @@
+@use "../../../sass/colors" as *;
+@use "../../../sass/variables" as *;
+
+.sidebar {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  width: $side-menu-width;
+  height: 100dvh;
+
+  padding: 1.5rem;
+
+  display: flex;
+  flex-direction: column;
+
+  background: rgba(8, 9, 11, .95);
+
+  border-right: 1px solid $border-color;
+
+  backdrop-filter: blur(24px);
+
+  z-index: $zi-header;
+}
+
+.sidebar__nav {
+  display: flex;
+  flex-direction: column;
+
+  gap: .5rem;
+
+  margin-top: calc($header-height + 1rem);
+}
+
+.sidebar__item {
+  height: 52px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 1rem;
+
+  padding: 0 1rem;
+
+  border-radius: 14px;
+
+  color: $text-secondary;
+
+  text-decoration: none;
+
+  transition: .25s;
+
+  svg {
+    flex-shrink: 0;
+
+    font-size: 1.25rem;
+  }
+
+  span {
+    font-size: .95rem;
+
+    font-weight: 500;
+  }
+
+  &:hover {
+    background: rgba(255,255,255,.05);
+
+    color: $white;
+  }
+}
+
+.active {
+  background: rgba($primary,.14);
+
+  color: $primary;
+
+  border: 1px solid rgba($primary,.2);
+}
+
+@media (max-width: $mobile) {
+
+  .sidebar {
+    transform: translateX(-100%);
+
+    transition: transform .3s ease;
+  }
+
+}
+
+.overlay {
+  display: none;
+}
+
+@media (max-width: $mobile) {
+
+  .sidebar {
+
+    width: 280px;
+
+    transform: translateX(-100%);
+
+    transition: transform .3s ease;
+  }
+
+  .open {
+
+    transform: translateX(0);
+  }
+
+  .overlay {
+
+    display: block;
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0,0,0,.55);
+
+    backdrop-filter: blur(3px);
+
+    z-index: calc(#{$zi-header} - 1);
+  }
+
+}

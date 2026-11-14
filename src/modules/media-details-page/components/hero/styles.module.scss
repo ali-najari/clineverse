@@ -1,0 +1,228 @@
+@use "../../../../shared/sass/colors" as *;
+@use "../../../../shared/sass/variables" as *;
+
+.mainWrapper {
+  display: grid;
+  grid-template-columns: 300px minmax(0, 1fr);
+  gap: 48px;
+
+  padding: 48px;
+
+}
+
+// ======================================================
+// Poster
+// ======================================================
+
+.heroPoster {
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  aspect-ratio: 2/3;
+
+  align-self: center;
+
+  border: 1px solid $border-color;
+  border-radius: 14px;
+
+  box-shadow: $dp8;
+
+  // position: relative;
+  // overflow: hidden;
+}
+
+// ======================================================
+// Information
+// ======================================================
+
+.heroInformations {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+// ======================================================
+// Title
+// ======================================================
+
+.title {
+  margin-bottom: 18px;
+
+  color: $text-primary;
+
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+
+// ======================================================
+// Rating / Date / Runtime
+// ======================================================
+
+.dateInformation {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  margin-bottom: 18px;
+
+  color: $text-secondary;
+
+  font-size: 0.95rem;
+
+  > div {
+    display: flex;
+    align-items: center;
+
+    min-height: 30px;
+    padding: 0 10px;
+
+    background: $surface;
+
+    border: 1px solid $border-color;
+    border-radius: 6px;
+  }
+
+  // Rating
+  > div:first-child {
+    color: $primary;
+    font-weight: 700;
+
+    background: rgba(255, 184, 0, 0.08);
+    border-color: rgba(255, 184, 0, 0.2);
+  }
+}
+
+// ======================================================
+// Genres
+// ======================================================
+
+.genres {
+  display: inline-flex;
+  align-items: center;
+
+  margin-bottom: 22px;
+
+  padding: 7px 12px;
+
+  color: $secondary-light;
+
+  background: rgba(125, 92, 255, 0.1);
+
+  border: 1px solid rgba(125, 92, 255, 0.2);
+  border-radius: 999px;
+
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+// ======================================================
+// Overview
+// ======================================================
+
+.overview {
+  max-width: 760px;
+
+  margin-bottom: 30px;
+
+  color: $text-secondary;
+
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+// ======================================================
+// Actions
+// ======================================================
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  min-height: 46px;
+
+  color: $white;
+}
+
+// ======================================================
+// Tablet
+// ======================================================
+
+@media (max-width: $tablet) {
+  .mainWrapper {
+    grid-template-columns: 220px minmax(0, 1fr);
+
+    gap: 32px;
+
+    padding: 32px;
+  }
+
+  .title {
+    font-size: clamp(1.8rem, 5vw, 2.8rem);
+  }
+
+  .overview {
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+}
+
+// ======================================================
+// Mobile
+// ======================================================
+
+@media (max-width: $mobile) {
+  .mainWrapper {
+    grid-template-columns: 1fr;
+
+    gap: 28px;
+
+    padding: 24px;
+
+    border-radius: 16px;
+  }
+
+  .heroPoster {
+    width: min(220px, 70%);
+    margin: 0 auto;
+  }
+
+  .heroInformations {
+    align-items: center;
+
+    text-align: center;
+  }
+
+  .title {
+    margin-bottom: 16px;
+
+    font-size: clamp(1.8rem, 9vw, 2.5rem);
+  }
+
+  .dateInformation {
+    justify-content: center;
+    flex-wrap: wrap;
+
+    margin-bottom: 16px;
+  }
+
+  .genres {
+    margin-bottom: 18px;
+  }
+
+  .overview {
+    margin-bottom: 24px;
+
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+
+  .actions {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}

@@ -1,0 +1,137 @@
+@use "../../../../shared/sass/colors" as *;
+@use "../../../../shared/sass/variables" as *;
+
+.biographyWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-top: 2rem;
+  padding: clamp(1.25rem, 3vw, 2rem);
+
+  background: linear-gradient(
+    135deg,
+    rgba($gray-800, 0.85),
+    rgba($video-player-bg, 0.96)
+  );
+
+  border: 1px solid $border-color;
+  border-radius: 1rem;
+  box-shadow: $dp2;
+}
+
+.biographyTitle {
+  position: relative;
+  margin: 0;
+  padding-bottom: 0.85rem;
+
+  color: $primary-light;
+  font-size: clamp(1.25rem, 2.5vw, 1.65rem);
+  font-weight: 750;
+  line-height: 1.4;
+
+  border-bottom: 1px solid $border-color;
+
+  &::after {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+
+    width: 3rem;
+    height: 2px;
+
+    content: "";
+    background: $primary-gradient;
+    border-radius: 2px;
+  }
+}
+
+.biographyText {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+  line-clamp: 5;
+
+  margin: 0;
+  overflow: hidden;
+  overflow-wrap: anywhere;
+
+  color: $text-secondary;
+  font-size: clamp(0.9rem, 1.2vw, 1rem);
+  font-weight: 400;
+  line-height: 2;
+  white-space: pre-line;
+  text-align: left;
+}
+
+// Expanded biography
+.expanded {
+  display: block;
+  overflow: visible;
+  -webkit-line-clamp: unset;
+  line-clamp: unset;
+}
+
+// Read more / Show less
+.biographyToggle {
+  align-self: flex-start;
+
+  margin-top: -0.5rem;
+  padding: 0.35rem 0;
+
+  border: none;
+  background: transparent;
+
+  color: $primary-light;
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 700;
+
+  cursor: pointer;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: $primary;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $primary-light;
+    outline-offset: 4px;
+    border-radius: 3px;
+  }
+}
+
+// Tablet
+@media (max-width: $tablet) {
+  .biographyWrapper {
+    gap: 1rem;
+  }
+
+  .biographyText {
+    line-height: 1.9;
+  }
+}
+
+// Mobile
+@media (max-width: $mobile) {
+  .biographyWrapper {
+    gap: 1rem;
+    margin-top: 1.5rem;
+    padding: 1.15rem;
+
+    border-radius: 0.85rem;
+  }
+
+  .biographyTitle {
+    padding-bottom: 0.7rem;
+  }
+
+  .biographyText {
+    font-size: 0.9rem;
+    line-height: 1.85;
+  }
+
+  .biographyToggle {
+    margin-top: -0.35rem;
+    font-size: 0.85rem;
+  }
+}

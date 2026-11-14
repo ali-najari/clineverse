@@ -1,0 +1,451 @@
+
+@use "../../../../shared/sass/colors" as *;
+@use "../../../../shared/sass/variables" as *;
+
+// ======================================================
+// Main Wrapper
+// ======================================================
+
+.mainWrapper {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+
+  padding: 10px;
+}
+
+// ======================================================
+// Section Header
+// ======================================================
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 16px;
+  min-width: 0;
+
+  margin-bottom: 22px;
+}
+
+.headerContent {
+  display: flex;
+  align-items: center;
+  flex: 1 1 auto;
+
+  gap: 14px;
+  min-width: 0;
+}
+
+.sectionType {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+
+  padding: 6px 10px;
+
+  border: 1px solid $secondary;
+  border-radius: 6px;
+
+  background: $surface;
+  color: $secondary-light;
+
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  white-space: nowrap;
+}
+
+.sectionTitle {
+  position: relative;
+
+  min-width: 0;
+  margin: 0;
+  padding-left: 13px;
+
+  color: $white;
+
+  font-size: clamp(18px, 2vw, 23px);
+  font-weight: 700;
+  line-height: 1.4;
+
+  overflow-wrap: anywhere;
+
+  &::before {
+    content: "";
+
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+
+    width: 4px;
+    height: 70%;
+
+    border-radius: 4px;
+    background: $primary-gradient;
+  }
+}
+
+// ======================================================
+// Header Actions
+// ======================================================
+
+.headerActions {
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+
+  gap: 18px;
+}
+
+.itemCount {
+  color: $text-secondary;
+
+  font-size: 12px;
+  font-weight: 500;
+
+  white-space: nowrap;
+}
+
+.carouselControls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.controlButton {
+  display: grid;
+  place-items: center;
+
+  width: 38px;
+  height: 38px;
+  flex: 0 0 auto;
+
+  border: 1px solid $border-color;
+  border-radius: 12px;
+
+  background: $gray-800;
+  color: $text-primary;
+
+  font-size: 19px;
+  cursor: pointer;
+
+  transition:
+    background 200ms ease,
+    color 200ms ease,
+    border-color 200ms ease,
+    transform 200ms ease;
+
+  &:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $primary;
+    outline-offset: 3px;
+  }
+
+  svg {
+    width: 19px;
+    height: 19px;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .controlButton:hover:not(:disabled) {
+    background: $primary-gradient;
+    border-color: $primary;
+    color: $gray-900;
+    transform: translateY(-2px);
+  }
+}
+
+.controlButton:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+// ======================================================
+// Section Content
+// ======================================================
+
+.sectionContent {
+  width: 100%;
+  min-width: 0;
+}
+
+.sectionCarousel {
+  width: 100%;
+  min-width: 0;
+}
+
+// ======================================================
+// Loading Skeleton
+// ======================================================
+
+.loadingWrapper {
+  display: grid;
+
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 20px;
+
+  width: 100%;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.skeletonCard {
+  display: flex;
+  flex-direction: column;
+
+  min-width: 0;
+  overflow: hidden;
+
+  border: 1px solid $border-color;
+  border-radius: 13px;
+
+  background: $surface;
+}
+
+.skeletonPoster {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+
+  background: linear-gradient(
+    110deg,
+    $gray-800 8%,
+    $gray-700 18%,
+    $gray-800 33%
+  );
+
+  background-size: 200% 100%;
+  animation: skeleton 1.5s ease-in-out infinite;
+}
+
+.skeletonInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  min-width: 0;
+  padding: 13px 12px 15px;
+}
+
+.skeletonTitle {
+  width: 85%;
+  height: 14px;
+
+  border-radius: 5px;
+  background: $gray-700;
+}
+
+.skeletonDate {
+  width: 40%;
+  height: 10px;
+
+  border-radius: 5px;
+  background: $gray-800;
+}
+
+@keyframes skeleton {
+  to {
+    background-position-x: -200%;
+  }
+}
+
+// ======================================================
+// View All
+// ======================================================
+
+.viewAllWrapper {
+  display: flex;
+  justify-content: center;
+
+  margin-top: 24px;
+}
+
+.viewAllLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  min-width: 170px;
+  min-height: 42px;
+
+  padding: 11px 20px;
+
+  border: 1px solid $border-color;
+  border-radius: 9px;
+
+  background: $surface;
+  color: $primary-light;
+
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+
+  transition:
+    background 200ms ease,
+    border-color 200ms ease,
+    color 200ms ease;
+
+  svg {
+    flex: 0 0 auto;
+    font-size: 15px;
+
+    transition: transform 200ms ease;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $primary;
+    outline-offset: 3px;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .viewAllLink:hover {
+    background: $gray-800;
+    border-color: $primary;
+    color: $primary;
+
+    svg {
+      transform: translateX(4px);
+    }
+  }
+}
+
+// ======================================================
+// Desktop
+// ======================================================
+
+@media (max-width: $desktop) {
+  .loadingWrapper {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+  }
+}
+
+// ======================================================
+// Tablet
+// ======================================================
+
+@media (max-width: $tablet) {
+  .sectionHeader {
+    gap: 12px;
+  }
+
+  .headerContent {
+    gap: 10px;
+  }
+
+  .headerActions {
+    gap: 12px;
+  }
+
+  .loadingWrapper {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .controlButton {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+// ======================================================
+// Mobile
+// ======================================================
+
+@media (max-width: $mobile) {
+  .mainWrapper {
+    margin: 30px 0;
+    padding: 8px;
+  }
+
+  .sectionHeader {
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 12px;
+
+    margin-bottom: 17px;
+  }
+
+  .headerContent {
+    flex: 1 1 100%;
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 8px;
+  }
+
+  .sectionType {
+    padding: 5px 8px;
+    font-size: 9px;
+  }
+
+  .sectionTitle {
+    font-size: clamp(17px, 5vw, 20px);
+  }
+
+  .headerActions {
+    justify-content: space-between;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .itemCount {
+    font-size: 11px;
+  }
+
+  .carouselControls {
+    gap: 6px;
+  }
+
+  .controlButton {
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+  }
+
+  .loadingWrapper {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .skeletonInfo {
+    gap: 8px;
+    padding: 10px;
+  }
+
+  .viewAllWrapper {
+    margin-top: 18px;
+  }
+
+  .viewAllLink {
+    width: 100%;
+    min-width: 0;
+    max-width: 240px;
+  }
+}
+
+// ======================================================
+// Reduced Motion
+// ======================================================
+
+@media (prefers-reduced-motion: reduce) {
+  .skeletonPoster {
+    animation: none;
+  }
+
+  .viewAllLink,
+  .viewAllLink svg,
+  .controlButton {
+    transition: none;
+  }
+}

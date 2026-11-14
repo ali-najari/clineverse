@@ -1,0 +1,43 @@
+@use "../../sass/colors" as *;
+@use "../../sass/variables" as *;
+
+.mainWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 20px;
+  background-color: $surface;
+  padding: 20px;
+  text-decoration: none;
+  &:hover {
+    transform: scale(1.02);
+    transition: transform 0.3s ease-in-out;
+    background-color: $primary-dark;
+    color: $surface;
+    .icon {
+      transform: rotate(0deg);
+      transition: transform 0.3s ease-in-out;
+      color: $gray-900;
+    }
+
+    .title {
+      color: $gray-900;
+    }
+  }
+
+  .title {
+    align-self: flex-start;
+    font-size: 24px;
+    font-weight: 600;
+    color: $primary-dark;
+  }
+
+  .icon {
+    align-self: flex-end;
+    width: 100px !important;
+    height: 100px !important;
+    color: $primary-dark;
+    font-size: 100px;
+    transform: rotate(45deg);
+  }
+}

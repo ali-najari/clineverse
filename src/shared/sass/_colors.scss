@@ -1,0 +1,145 @@
+// ======================================================
+// Base Colors
+// ======================================================
+
+$video-player-bg: rgb(10, 12, 18);
+$modal-bg: rgba(6, 8, 12, 0.7);
+
+$scrollbar-track-color: #131722;
+$scrollbar-thumb-color: #5c6475;
+
+$nav-hover: #ffcb52;
+$searchbar-hover: #8d72ff;
+$searchbar-bg: rgba(255, 255, 255, 0.06);
+
+$code-inputs-bg: rgba(255, 255, 255, 0.08);
+
+// ======================================================
+// 1. Brand Colors
+// ======================================================
+
+$primary: #ffb800;
+$primary-light: #ffd15a;
+$primary-dark: #d69500;
+
+$secondary: #7d5cff;
+$secondary-hover: #987fff;
+$secondary-light: #b4a5ff;
+
+// ======================================================
+// 2. Gradients
+// ======================================================
+
+$primary-gradient: linear-gradient(
+  90deg,
+  #ffb800 0%,
+  #ff8c00 100%
+);
+
+$app-bg: linear-gradient(
+  135deg,
+  #08090b 0%,
+  #101522 45%,
+  #17152a 100%
+);
+
+$app-mobile-bg: linear-gradient(
+  to top,
+  #08090b,
+  #101522 70%,
+  #17152a 100%
+);
+
+// ======================================================
+// 3. Neutrals
+// ======================================================
+
+$white: #ffffff;
+$black: #000000;
+
+$gray-900: #0d1117;
+$gray-800: #181c24;
+$gray-700: #232833;
+$gray-600: #3c4556;
+$gray-500: #677086;
+$gray-400: #97a0b2;
+$gray-300: #c7ced9;
+
+$surface: rgba(255, 255, 255, 0.05);
+
+// Disable color range
+
+$Disable-7: #545b68;
+$Disable-7_5: #edf1f5;
+$Disable-6_5: #f5f5f7;
+$Disable-6: #878d98;
+$Disable: #9ea5b2;
+$Disable-4: #bcc2cc;
+$Disable-3: #d0d5dc;
+$Disable-2: #dfe3e8;
+$Disable-1_5: #e8ebef;
+$Disable-1: #f1f3f5;
+$Disable-0_5: #f8f9fb;
+
+// ======================================================
+// 4. Status
+// ======================================================
+
+// Success
+
+$Success-6: #00a86b;
+$Success: #19d17f;
+$Success-4: #4bdd99;
+$Success-3: #74e7b1;
+$Success-2: #9df0ca;
+$Success-1_5: #b8f4d8;
+$Success-1: #d2f8e5;
+$Success-0_5: #ecfcf3;
+
+// Info
+
+$Info-6: #1976d2;
+$Info: #35a4ff;
+$Info-4_5: #48b1ff;
+$Info-4: #61bdff;
+$Info-3_5: #79c8ff;
+$Info-3: #93d4ff;
+$Info-2: #b3e3ff;
+$Info-1_5: #c9ecff;
+$Info-1: #ddf4ff;
+$Info-0_5: #eefbff;
+$Info-0: #f6fdff;
+
+// Danger
+
+$Danger-7: #d32f2f;
+$Danger-6: #e04848;
+$Danger: #ff5d5d;
+$Danger-4: #ff7c7c;
+$Danger-3: #ff9d9d;
+$Danger-2: #ffc0c0;
+$Danger-1_5: #ffd0d0;
+$Danger-1: #ffe0e0;
+$Danger-0_5: #fff1f1;
+
+// Warning
+
+$Warning-6: #d49d00;
+$Warning: #ffca28;
+$Warning-4: #ffd54f;
+$Warning-3: #ffe082;
+$Warning-2: #ffecb3;
+$Warning-1_5: #fff2ca;
+$Warning-1: #fff7df;
+$Warning-0_5: #fffcef;
+
+// ======================================================
+// 5. Semantic Colors
+// ======================================================
+
+$border-color: rgba(255, 255, 255, 0.08);
+
+$input-bg: #1b2029;
+
+$text-primary: #ffffff;
+$text-secondary: #d6d9df;

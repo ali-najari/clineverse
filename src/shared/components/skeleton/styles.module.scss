@@ -1,0 +1,25 @@
+@use "../../sass/colors" as *;
+@use "../../sass/variables" as *;
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    rgba($surface, 0.08) 25%,
+    rgba($surface, 0.15) 37%,
+    rgba($surface, 0.08) 63%
+  );
+  background-size: 200% 100%;
+}
+
+.skeleton.animated {
+  animation: shimmer 1.5s ease-in-out infinite;
+}

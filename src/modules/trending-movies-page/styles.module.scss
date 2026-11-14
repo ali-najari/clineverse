@@ -1,0 +1,33 @@
+@use "../../shared/sass/colors" as *;
+@use "../../shared/sass/variables" as *;
+
+.mainWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 95%;
+  padding: 10px 25px;
+  border-radius: 10px;
+  background: $primary-gradient;
+  color: $black;
+}
+
+.content {
+  width: 95%;
+}
+.movieList {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 10px;
+  gap: 10px;
+}

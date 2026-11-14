@@ -1,0 +1,219 @@
+@use "../../../sass/colors" as *;
+@use "../../../sass/variables" as *;
+
+.carousel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.slides {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transition:
+    opacity 700ms ease,
+    visibility 700ms ease;
+}
+
+.active {
+  z-index: 1;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+// ======================================================
+// Navigation Arrows
+// ======================================================
+
+.arrows {
+  position: absolute;
+  inset: 50% 24px auto;
+  transform: translateY(-50%);
+  z-index: $zi-slider-btn;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  pointer-events: none;
+}
+
+.arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 44px;
+  height: 44px;
+
+  border: 1px solid $border-color;
+  border-radius: 50%;
+
+  background: $modal-bg;
+  color: $text-primary;
+
+  font-size: 18px;
+  cursor: pointer;
+  pointer-events: auto;
+
+  box-shadow: $dp2;
+
+  transition:
+    background 200ms ease,
+    color 200ms ease,
+    border-color 200ms ease,
+    transform 200ms ease;
+
+  &:hover {
+    background: $primary;
+    border-color: $primary;
+    color: $black;
+    transform: scale(1.08);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  &:focus-visible {
+    outline: 2px solid $primary;
+    outline-offset: 4px;
+  }
+}
+
+// ======================================================
+// Pagination
+// ======================================================
+
+.pagination {
+  position: absolute;
+  right: 5%;
+  bottom: 24px;
+  z-index: $zi-slider-btn;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+
+  padding: 0;
+  border: none;
+  border-radius: 20px;
+
+  background: $gray-500;
+  cursor: pointer;
+
+  transition:
+    width 250ms ease,
+    background 250ms ease,
+    opacity 250ms ease;
+
+  &:hover {
+    background: $primary-light;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $primary;
+    outline-offset: 4px;
+  }
+}
+
+.activeDot {
+  width: 28px;
+  background: $primary-gradient;
+}
+
+// ======================================================
+// Responsive
+// ======================================================
+
+@media (max-width: $tablet) {
+  .arrows {
+    inset-inline: 16px;
+  }
+
+  .arrow {
+    width: 40px;
+    height: 40px;
+  }
+
+  .pagination {
+    right: 4%;
+    bottom: 20px;
+  }
+}
+
+@media (max-width: $mobile) {
+  .arrows {
+    inset-inline: 12px;
+  }
+
+  .arrow {
+    width: 34px;
+    height: 34px;
+    font-size: 15px;
+  }
+
+  .pagination {
+    right: 20px;
+    bottom: 16px;
+    gap: 6px;
+  }
+
+  .dot {
+    width: 6px;
+    height: 6px;
+  }
+
+  .activeDot {
+    width: 22px;
+  }
+}
+
+// ======================================================
+// Accessibility
+// ======================================================
+
+@media (prefers-reduced-motion: reduce) {
+  .slide,
+  .arrow,
+  .dot {
+    transition: none;
+  }
+}
+
+.multiple {
+  height: auto;
+  overflow: visible;
+
+  .slides {
+    display: flex;
+    align-items: stretch;
+    gap: 20px;
+
+    height: auto;
+    overflow: hidden;
+  }
+}
+
+.multipleSlide {
+  flex: 0 0 200px;
+  min-width: 0;
+}

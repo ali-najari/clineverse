@@ -1,0 +1,15 @@
+@use "../../shared/sass/colors" as *;
+@use "../../shared/sass/variables" as *;
+
+.mainWrapper{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 2fr));
+    gap: 25px;
+    padding: 20px;
+}
+
+.icon{
+    width: 100px;
+    height: 100px;
+    color: $primary;
+}

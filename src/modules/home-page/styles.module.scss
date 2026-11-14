@@ -1,0 +1,67 @@
+@use "../../shared/sass/colors" as *;
+@use "../../shared/sass/variables" as *;
+
+.homePage {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(36px, 5vw, 64px);
+
+  width: 100%;
+  min-width: 0;
+  padding-bottom: 60px;
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  padding-top: 12px;
+
+  h1 {
+    max-width: 700px;
+    margin: 0;
+
+    color: $white;
+    font-size: clamp(28px, 4vw, 46px);
+    font-weight: 800;
+    line-height: 1.2;
+
+    span {
+      color: $primary;
+    }
+  }
+
+  p {
+    margin: 0;
+    color: $gray-400;
+    font-size: 14px;
+    line-height: 1.8;
+  }
+}
+
+.eyebrow {
+  color: $secondary-light;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 3px;
+}
+
+@media (max-width: $mobile) {
+  .homePage {
+    gap: 36px;
+    padding-bottom: 40px;
+  }
+
+  .intro {
+    gap: 10px;
+
+    p {
+      font-size: 12px;
+    }
+  }
+
+  .eyebrow {
+    font-size: 9px;
+  }
+}

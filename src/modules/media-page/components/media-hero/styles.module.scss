@@ -1,0 +1,326 @@
+
+@use "../../../../shared/sass/colors" as *;
+@use "../../../../shared/sass/variables" as *;
+
+// ======================================================
+// Hero Container
+// ======================================================
+
+.heroCarousel {
+  width: 100%;
+  height: clamp(460px, 62vw, 680px);
+  min-height: 460px;
+
+  overflow: hidden;
+  border-radius: 18px;
+
+  background: $video-player-bg;
+}
+
+// ======================================================
+// Hero Slide
+// ======================================================
+
+.heroSlide {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+}
+
+// ======================================================
+// Background Image
+// ======================================================
+
+.backdrop {
+  position: absolute;
+  inset: 0;
+
+  img {
+    object-fit: cover;
+    object-position: center 30%;
+    transition: transform 8s ease;
+  }
+}
+
+// ======================================================
+// Background Overlay
+// ======================================================
+
+.overlay {
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      $gray-900 0%,
+      $gray-900 22%,
+      $modal-bg 55%,
+      transparent 100%
+    ),
+    linear-gradient(
+      0deg,
+      $gray-900 0%,
+      transparent 55%
+    );
+}
+
+// ======================================================
+// Hero Content
+// ======================================================
+
+.content {
+  position: absolute;
+  left: clamp(24px, 6%, 80px);
+  bottom: clamp(70px, 12%, 110px);
+  z-index: 1;
+
+  width: min(580px, 65%);
+}
+
+// ======================================================
+// Meta Information
+// ======================================================
+
+.meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+
+  margin-bottom: 18px;
+}
+
+.type {
+  display: inline-flex;
+  align-items: center;
+
+  padding: 5px 11px;
+
+  border-radius: 5px;
+
+  background: $primary;
+  color: $black;
+
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.year {
+  color: $gray-300;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+
+  color: $primary-light;
+  font-size: 14px;
+  font-weight: 700;
+
+  svg {
+    color: $primary;
+  }
+}
+
+// ======================================================
+// Title
+// ======================================================
+
+.title {
+  margin: 0 0 18px;
+
+  color: $white;
+
+  font-size: clamp(32px, 5vw, 64px);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -1px;
+}
+
+// ======================================================
+// Overview
+// ======================================================
+
+.overview {
+  display: -webkit-box;
+  overflow: hidden;
+
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+
+  max-width: 540px;
+  margin: 0 0 26px;
+
+  color: $text-secondary;
+
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+// ======================================================
+// Actions
+// ======================================================
+
+.actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.actionButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+
+  min-width: 125px;
+  min-height: 46px;
+
+  padding: 0 24px;
+
+  border: 1px solid transparent;
+  border-radius: 8px;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  text-decoration: none;
+  cursor: pointer;
+
+  transition:
+    transform 200ms ease,
+    background 200ms ease,
+    border-color 200ms ease;
+
+  &:focus-visible {
+    outline: 2px solid $primary;
+    outline-offset: 4px;
+  }
+}
+
+// Primary Button
+
+.primaryButton {
+  background: $primary-gradient;
+  color: $black;
+  box-shadow: $dp2;
+}
+
+// Secondary Button
+
+.secondaryButton {
+  border-color: $border-color;
+  background: $surface;
+  color: $white;
+}
+
+// Hover
+
+@media (hover: hover) and (pointer: fine) {
+  .actionButton:hover {
+    transform: translateY(-3px);
+  }
+
+  .primaryButton:hover {
+    background: $primary-light;
+  }
+
+  .secondaryButton:hover {
+    border-color: $secondary;
+    background: $gray-800;
+  }
+}
+
+// ======================================================
+// Tablet
+// ======================================================
+
+@media (max-width: $tablet) {
+  .heroCarousel {
+    height: 540px;
+  }
+
+  .content {
+    width: 75%;
+  }
+
+  .overlay {
+    background:
+      linear-gradient(
+        90deg,
+        $gray-900 0%,
+        $modal-bg 65%,
+        transparent 100%
+      ),
+      linear-gradient(
+        0deg,
+        $gray-900 0%,
+        transparent 75%
+      );
+  }
+}
+
+// ======================================================
+// Mobile
+// ======================================================
+
+@media (max-width: $mobile) {
+  .heroCarousel {
+    height: 500px;
+    min-height: 500px;
+
+    border-radius: 12px;
+  }
+
+  .content {
+    left: 20px;
+    right: 20px;
+    bottom: 65px;
+
+    width: auto;
+  }
+
+  .title {
+    font-size: clamp(30px, 8vw, 42px);
+  }
+
+  .overview {
+    font-size: 12px;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+  }
+
+  .actions {
+    gap: 8px;
+  }
+
+  .actionButton {
+    min-width: 0;
+    min-height: 42px;
+
+    padding: 0 16px;
+
+    font-size: 11px;
+  }
+}
+
+// ======================================================
+// Accessibility
+// ======================================================
+
+@media (prefers-reduced-motion: reduce) {
+  .backdrop img,
+  .actionButton {
+    transition: none;
+  }
+}

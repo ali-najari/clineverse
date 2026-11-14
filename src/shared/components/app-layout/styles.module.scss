@@ -1,0 +1,50 @@
+@use "../../sass/colors" as *;
+@use "../../sass/variables" as *;
+
+.layout {
+  display: flex;
+  background: $app-bg;
+  color: $text-primary;
+}
+
+.layout__content {
+  flex: 1;
+  margin-left: 289px;
+  padding-top: $header-height;
+  min-height: 100vh;
+  overflow-x: hidden;
+  transition: margin 0.3s ease;
+}
+
+.layout__container {
+  min-height: calc(100vh - $header-height);
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: $mobile) {
+  .layout__content {
+    margin-left: 0;
+    padding-top: $mobile-menu-height;
+  }
+
+  .layout__container {
+    padding: 1rem;
+    padding-bottom: 5rem;
+  }
+}
+
+.overlay {
+  display: none;
+}
+
+@media (max-width: $mobile) {
+  .overlay {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(2px);
+    z-index: 9000;
+  }
+}

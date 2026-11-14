@@ -1,0 +1,140 @@
+
+@use "../../../sass/colors" as *;
+@use "../../../sass/variables" as *;
+
+// ======================================================
+// Carousel
+// ======================================================
+
+.carousel {
+  width: 100%;
+  min-width: 0;
+  position: relative;
+}
+
+// ======================================================
+// Scroll Container
+// ======================================================
+
+.scrollContainer {
+  width: 100%;
+  min-width: 0;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  overscroll-behavior-x: contain;
+
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  &:focus-visible {
+    outline: 1px solid $primary;
+    outline-offset: 4px;
+    border-radius: 8px;
+  }
+}
+
+// ======================================================
+// Track
+// ======================================================
+
+.track {
+  display: flex;
+  align-items: stretch;
+  gap: 20px;
+
+  width: 100%;
+  min-width: 100%;
+}
+
+// ======================================================
+// Slide
+// ======================================================
+
+.slide {
+  flex: 0 0 calc((100% - 80px) / 5);
+
+  min-width: 0;
+  box-sizing: border-box;
+
+  scroll-snap-align: start;
+  scroll-snap-stop: normal;
+
+  > * {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
+// ======================================================
+// Desktop
+// ======================================================
+
+@media (max-width: $desktop) {
+  .track {
+    gap: 18px;
+  }
+
+  .slide {
+    flex-basis: calc((100% - 54px) / 4);
+  }
+}
+
+// ======================================================
+// Tablet
+// ======================================================
+
+@media (max-width: $tablet) {
+  .track {
+    gap: 16px;
+  }
+
+  .slide {
+    flex-basis: calc((100% - 32px) / 3);
+  }
+}
+
+// ======================================================
+// Mobile
+// ======================================================
+
+@media (max-width: $mobile) {
+  .track {
+    gap: 12px;
+  }
+
+  .slide {
+    flex-basis: calc((100% - 12px) / 2);
+  }
+}
+
+// ======================================================
+// Accessibility
+// ======================================================
+
+@media (hover: hover) and (pointer: fine) {
+  .slide {
+    transition: transform 250ms ease;
+
+    &:hover {
+      transform: translateY(-4px);
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scrollContainer {
+    scroll-behavior: auto;
+  }
+
+  .slide {
+    transition: none;
+  }
+}

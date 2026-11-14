@@ -1,0 +1,154 @@
+@use "../../../sass/colors" as *;
+@use "../../../sass/variables" as *;
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 289px;
+  right: 0;
+  height: $header-height;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  backdrop-filter: blur(20px);
+  background: rgba(8, 9, 11, .55);
+  border-bottom: 1px solid $border-color;
+  z-index: $zi-header;
+}
+
+.header__left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.header__logo {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: $white;
+  letter-spacing: .5px;
+  span {
+    color: $primary;
+  }
+}
+
+.header__menu {
+  display: none;
+  width: 42px;
+  height: 42px;
+  border: none;
+  border-radius: 12px;
+  background: $surface;
+  color: $white;
+  cursor: pointer;
+  transition: .25s;
+  svg {
+    font-size: 1.3rem;
+  }
+
+  &:hover {
+    background: rgba(255,255,255,.08);
+  }
+}
+
+.header__search {
+  position: relative;
+  width: 420px;
+  input {
+    width: 100%;
+    height: 46px;
+    padding-left: 46px;
+    padding-right: 18px;
+    border: 1px solid transparent;
+    border-radius: 14px;
+    background: $searchbar-bg;
+    color: $text-primary;
+    outline: none;
+    transition: .25s;
+
+    &::placeholder {
+      color: $gray-400;
+    }
+
+    &:focus {
+      border-color: rgba($primary,.5);
+      background: rgba(255,255,255,.08);
+    }
+  }
+}
+
+.header__searchIcon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: $gray-400;
+  font-size: 1rem;
+}
+
+.header__right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.header__icon {
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 14px;
+  background: $surface;
+  color: $white;
+  cursor: pointer;
+  transition: .25s;
+  svg {
+    font-size: 1.2rem;
+  }
+
+  &:hover {
+    background: rgba(255,255,255,.08);
+
+    color: $primary;
+  }
+}
+
+.header__profile {
+  width: 46px;
+  height: 46px;
+  border: none;
+  border-radius: 50%;
+  background: $primary-gradient;
+  color: $black;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+@media (max-width: $mobile) {
+
+  .header {
+    left: 0;
+    height: $mobile-menu-height;
+    padding: 0 1rem;
+  }
+
+  .header__menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .header__search {
+    display: none;
+  }
+
+  .header__logo {
+    font-size: 1.3rem;
+  }
+
+  .header__icon {
+    display: none;
+  }
+
+}

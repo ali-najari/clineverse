@@ -1,0 +1,19 @@
+@use "../../shared/sass/variables" as *;
+@use "../../shared/sass/colors" as *;
+
+.mainWrapper {
+  background: radial-gradient(
+      circle at 75% 20%,
+      rgba(125, 92, 255, 0.12),
+      transparent 35%
+    ),
+    linear-gradient(135deg, rgba(255, 184, 0, 0.04), rgba(255, 255, 255, 0.02));
+
+  border: 1px solid $border-color;
+  border-radius: 20px;
+  box-shadow: $box-shadow;
+
+  overflow: hidden;
+  padding: 20px;
+  margin: 25px;
+}
