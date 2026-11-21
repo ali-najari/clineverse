@@ -1,43 +1,172 @@
+
 @use "../../sass/colors" as *;
 @use "../../sass/variables" as *;
 
 .mainWrapper {
+  position: relative;
   display: flex;
-  flex-direction: column;
   justify-content: space-between;
+  align-items: center;
+  min-height: 230px;
+  padding: 30px;
+  overflow: hidden;
+
+  border: 1px solid $border-color;
   border-radius: 20px;
-  background-color: $surface;
-  padding: 20px;
+
+  background: linear-gradient(
+    135deg,
+    $gray-800 0%,
+    $gray-900 100%
+  );
+
   text-decoration: none;
+  isolation: isolate;
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease;
+
   &:hover {
-    transform: scale(1.02);
-    transition: transform 0.3s ease-in-out;
-    background-color: $primary-dark;
-    color: $surface;
+    transform: translateY(-5px);
+    border-color: $primary;
+
     .icon {
-      transform: rotate(0deg);
-      transition: transform 0.3s ease-in-out;
-      color: $gray-900;
+      transform: scale(1.08) rotate(-8deg);
     }
 
-    .title {
-      color: $gray-900;
+    .arrow {
+      transform: translate(3px, -3px);
     }
   }
+}
 
-  .title {
-    align-self: flex-start;
-    font-size: 24px;
-    font-weight: 600;
-    color: $primary-dark;
+.cardContent {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  max-width: 65%;
+}
+
+.eyebrow {
+  color: $primary;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.title {
+  color: $white;
+  font-size: clamp(22px, 2.5vw, 30px);
+  font-weight: 700;
+}
+
+.description {
+  color: $gray-400;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.explore {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+
+  color: $primary;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.arrow {
+  font-size: 18px;
+  transition: transform 0.25s ease;
+}
+
+.iconWrapper {
+  position: absolute;
+  right: 25px;
+  bottom: 15px;
+  z-index: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 130px;
+  height: 130px;
+}
+
+.icon {
+  width: 100%;
+  height: 100%;
+  color: $primary;
+  opacity: 0.75;
+
+  transition: transform 0.3s ease;
+}
+
+.cardDecoration {
+  position: absolute;
+  right: -55px;
+  bottom: -100px;
+  z-index: -1;
+
+  width: 260px;
+  height: 260px;
+
+  border: 1px solid $border-color;
+  border-radius: 50%;
+}
+
+.secondary {
+  &:hover {
+    border-color: $secondary;
+  }
+
+  .eyebrow,
+  .explore {
+    color: $secondary-light;
   }
 
   .icon {
-    align-self: flex-end;
-    width: 100px !important;
-    height: 100px !important;
-    color: $primary-dark;
-    font-size: 100px;
-    transform: rotate(45deg);
+    color: $secondary;
+  }
+}
+
+@media (max-width: $tablet) {
+  .mainWrapper {
+    min-height: 200px;
+    padding: 24px;
+  }
+
+  .iconWrapper {
+    width: 105px;
+    height: 105px;
+  }
+}
+
+@media (max-width: $mobile) {
+  .mainWrapper {
+    min-height: 180px;
+    padding: 20px;
+  }
+
+  .cardContent {
+    max-width: 75%;
+  }
+
+  .iconWrapper {
+    right: 12px;
+    bottom: 12px;
+    width: 85px;
+    height: 85px;
+  }
+
+  .description {
+    font-size: 12px;
   }
 }
