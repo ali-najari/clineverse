@@ -11,7 +11,7 @@ $scrollbar-thumb-color: #5c6475;
 $nav-hover: #ffcb52;
 $searchbar-hover: #8d72ff;
 $searchbar-bg: rgba(255, 255, 255, 0.06);
-
+$card-bg: rgba(24, 28, 36, 0.72);
 $code-inputs-bg: rgba(255, 255, 255, 0.08);
 
 // ======================================================
@@ -30,25 +30,11 @@ $secondary-light: #b4a5ff;
 // 2. Gradients
 // ======================================================
 
-$primary-gradient: linear-gradient(
-  90deg,
-  #ffb800 0%,
-  #ff8c00 100%
-);
+$primary-gradient: linear-gradient(90deg, #ffb800 0%, #ff8c00 100%);
 
-$app-bg: linear-gradient(
-  135deg,
-  #08090b 0%,
-  #101522 45%,
-  #17152a 100%
-);
+$app-bg: linear-gradient(135deg, #08090b 0%, #101522 45%, #17152a 100%);
 
-$app-mobile-bg: linear-gradient(
-  to top,
-  #08090b,
-  #101522 70%,
-  #17152a 100%
-);
+$app-mobile-bg: linear-gradient(to top, #08090b, #101522 70%, #17152a 100%);
 
 // ======================================================
 // 3. Neutrals

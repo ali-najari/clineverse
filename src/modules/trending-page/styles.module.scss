@@ -1,15 +1,368 @@
 @use "../../shared/sass/colors" as *;
 @use "../../shared/sass/variables" as *;
 
-.mainWrapper{
-    display:grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 2fr));
-    gap: 25px;
-    padding: 20px;
+.mainWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 38px;
+  padding: 30px;
 }
 
-.icon{
-    width: 100px;
-    height: 100px;
+// ======================================================
+// Introduction
+// ======================================================
+
+.intro {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+
+  min-height: 180px;
+  padding: 30px 35px;
+
+  border: 1px solid $border-color;
+  border-radius: 22px;
+
+  background: linear-gradient(
+    120deg,
+    $gray-800 0%,
+    $gray-900 75%,
+    $video-player-bg 100%
+  );
+}
+
+.introContent {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+
+  h1 {
+    color: $white;
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 800;
+    letter-spacing: -1px;
+
+    span {
+      color: $primary;
+    }
+  }
+
+  p {
+    color: $gray-400;
+    font-size: 14px;
+    line-height: 1.7;
+  }
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  color: $primary;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.8px;
+
+  svg {
+    font-size: 15px;
+  }
+}
+
+// ======================================================
+// Time Filter
+// ======================================================
+
+.timeFilter {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex-shrink: 0;
+
+  > span {
+    color: $gray-400;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+  }
+}
+
+.filterOptions {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  padding: 5px;
+  border: 1px solid $border-color;
+  border-radius: 12px;
+  background-color: $gray-900;
+
+  button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+
+    background: transparent;
+    color: $gray-400;
+
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+
+    transition:
+      background-color 0.2s ease,
+      color 0.2s ease;
+
+    &.active {
+      background: $primary-gradient;
+      color: $gray-900;
+    }
+  }
+}
+
+// ======================================================
+// Section Headings
+// ======================================================
+
+.sectionHeading,
+.snapshotHeader {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 15px;
+
+  h2 {
+    margin-top: 8px;
+    color: $white;
+    font-size: clamp(21px, 2.5vw, 27px);
+    font-weight: 700;
+  }
+}
+
+.sectionEyebrow {
+  color: $primary;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.sectionDescription {
+  color: $gray-500;
+  font-size: 12px;
+}
+
+// ======================================================
+// Categories
+// ======================================================
+
+.categoriesSection {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.categoriesGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+// ======================================================
+// Trending Snapshot
+// ======================================================
+
+.snapshotSection {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.snapshotHeader {
+  p {
+    margin-top: 8px;
+    color: $gray-400;
+    font-size: 13px;
+  }
+}
+
+.periodBadge {
+  padding: 8px 12px;
+  border: 1px solid $border-color;
+  border-radius: 8px;
+
+  color: $primary;
+  background-color: $surface;
+
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.snapshotGrid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 15px;
+}
+
+.snapshotItem {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 0;
+}
+
+.rank {
+  color: $primary;
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.snapshotCard {
+  position: relative;
+  min-width: 0;
+
+  .movieTag,
+  .tvTag {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 2;
+
+    padding: 5px 8px;
+    border-radius: 5px;
+
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+  }
+
+  .movieTag {
+    color: $gray-900;
+    background: $primary;
+  }
+
+  .tvTag {
+    color: $white;
+    background: $secondary;
+  }
+}
+
+.snapshotStatus {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 180px;
+
+  border: 1px solid $border-color;
+  border-radius: 15px;
+
+  color: $gray-400;
+  background: $surface;
+  font-size: 13px;
+}
+
+.snapshotFooter {
+  display: flex;
+  justify-content: flex-end;
+
+  a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 12px 18px;
+    border: 1px solid $border-color;
+    border-radius: 10px;
+
     color: $primary;
+    background: $surface;
+
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+
+    transition:
+      border-color 0.2s ease,
+      background-color 0.2s ease;
+
+    &:hover {
+      border-color: $primary;
+      background-color: $gray-800;
+    }
+  }
+}
+
+// ======================================================
+// Responsive
+// ======================================================
+
+
+@media (max-width: $desktop) {
+  .snapshotGrid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: $tablet) {
+  .mainWrapper {
+    padding: 22px;
+    gap: 30px;
+  }
+
+  .intro {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .categoriesGrid {
+    gap: 14px;
+  }
+
+  .snapshotGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: $mobile) {
+  .mainWrapper {
+    padding: 14px;
+    gap: 27px;
+  }
+
+  .intro {
+    padding: 24px 20px;
+  }
+
+  .introContent {
+    h1 {
+      font-size: 32px;
+    }
+
+    p {
+      font-size: 12px;
+    }
+  }
+
+  .categoriesGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .sectionDescription {
+    display: none;
+  }
+
+  .snapshotGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px 12px;
+  }
+
+  .snapshotHeader {
+    align-items: flex-start;
+  }
+
+  .periodBadge {
+    font-size: 9px;
+  }
 }

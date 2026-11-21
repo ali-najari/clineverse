@@ -1,0 +1,146 @@
+
+@use "../../shared/sass/colors" as *;
+@use "../../shared/sass/variables" as *;
+
+.mainWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+  padding: 25px;
+}
+
+.pageIntro {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 25px;
+  padding: 30px;
+  border: 1px solid $border-color;
+  border-radius: 20px;
+  background: $surface;
+}
+
+.introContent {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  h1 {
+    color: $white;
+    font-size: clamp(28px, 3vw, 42px);
+    font-weight: 700;
+
+    span {
+      color: $primary;
+    }
+  }
+
+  p {
+    color: $gray-400;
+    font-size: 14px;
+  }
+}
+
+.eyebrow,
+.sectionEyebrow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: $primary;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.filterWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+  flex-shrink: 0;
+
+  > span {
+    color: $gray-400;
+    font-size: 10px;
+    letter-spacing: 1px;
+  }
+}
+
+.resultsSection {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.resultsHeader {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  h2 {
+    margin-top: 8px;
+    color: $white;
+    font-size: clamp(20px, 2vw, 27px);
+  }
+}
+
+.resultsCount {
+  color: $gray-400;
+  font-size: 12px;
+}
+
+.movieList {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(190px, 1fr)
+  );
+  gap: 20px;
+}
+
+.statusMessage {
+  padding: 50px 20px;
+  border: 1px solid $border-color;
+  border-radius: 15px;
+  color: $gray-400;
+  text-align: center;
+  background: $surface;
+}
+
+@media (max-width: $tablet) {
+  .mainWrapper {
+    padding: 20px;
+  }
+
+  .pageIntro {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .filterWrapper {
+    align-items: flex-start;
+  }
+
+  .movieList {
+    grid-template-columns: repeat(
+      auto-fill,
+      minmax(145px, 1fr)
+    );
+  }
+}
+
+@media (max-width: $mobile) {
+  .mainWrapper {
+    padding: 14px;
+    gap: 25px;
+  }
+
+  .pageIntro {
+    padding: 22px;
+  }
+
+  .movieList {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+}
